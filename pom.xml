@@ -115,7 +115,9 @@
         <powermock.version>1.6.5</powermock.version>
         <easymock.version>3.4</easymock.version>
         <testng.version>6.9.10</testng.version>
-        <!-- false in JDK 6 profile (i.e. JDK 6 build has ITs turned on): -->
+        <tck.version>stormpath-sdk-java-1.0.2</tck.version>
+        <clover.version>4.1.1</clover.version>
+        <!-- false in JDK 7 profile (i.e. JDK 7 build has ITs turned on): -->
         <skipITs>true</skipITs>
 
         <!-- Sample App Dependencies: only required when running a sample app. Not required by SDK users at runtime: -->
@@ -673,7 +675,6 @@
                 <clover.history.dir>${clover.project.dir}/history</clover.history.dir>
                 <clover.database.dir>${clover.project.dir}/database</clover.database.dir>
                 <clover.database>${clover.database.dir}/clover.db</clover.database>
-                <clover.version>4.1.1</clover.version>
             </properties>
 
             <modules>
