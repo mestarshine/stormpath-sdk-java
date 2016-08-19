@@ -141,8 +141,8 @@
                                     <arguments>
                                         <argument>${project.basedir}/../../tck.sh</argument>
                                         <argument>clone</argument>
-                                        <argument>${tck.version}</argument>
                                         <argument>${project.build.directory}/stormpath-framework-tck</argument>
+                                        <argument>${tck.version}</argument>
                                     </arguments>
                                 </configuration>
                             </execution>

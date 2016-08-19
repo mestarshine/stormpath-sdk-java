@@ -115,7 +115,7 @@
         <powermock.version>1.6.5</powermock.version>
         <easymock.version>3.4</easymock.version>
         <testng.version>6.9.10</testng.version>
-        <tck.version>stormpath-sdk-java-1.0.2</tck.version>
+        <tck.version>1.0.0</tck.version>
         <clover.version>4.1.1</clover.version>
         <!-- false in JDK 7 profile (i.e. JDK 7 build has ITs turned on): -->
         <skipITs>true</skipITs>
