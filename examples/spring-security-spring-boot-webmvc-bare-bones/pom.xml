@@ -105,7 +105,9 @@
 
     <profiles>
         <profile>
-            <id>clover.all</id>
+            <!--<id>clover.all</id>-->
+            <!-- temporarily disabling until Spring Sec / TCK issues are worked out -->
+            <id>clover.none</id>
             <properties>
                 <!-- clover - for internal use -->
                 <clover.coverage.percentage>30%</clover.coverage.percentage>
