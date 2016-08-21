@@ -21,6 +21,8 @@ OPTION_ARGUMENT02=${3:-NOT_SET}
 
 AVAILABLE_PROFILES="java, laravel, express"
 
+export STORMPATH_APPLICATION_HREF=$STORMPATH_TEST_APPLICATION_HREF
+
 if [ "$OPTION" = "NO_OPTION" ] ; then
     echo "usage: tck [<option>]"
     echo "Option"
