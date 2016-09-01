@@ -100,6 +100,9 @@ public class DefaultUserAgent implements UserAgent {
             if (val != null) {
                 accepted = MediaType.parseMediaTypes(val);
                 MediaType.sortBySpecificityAndQuality(accepted);
+            } else {
+                // 865: If no accept header, default to application/json
+                accepted = MediaType.parseMediaTypes(MediaType.APPLICATION_JSON_VALUE);
             }
 
             this.acceptedMediaTypes = accepted;
