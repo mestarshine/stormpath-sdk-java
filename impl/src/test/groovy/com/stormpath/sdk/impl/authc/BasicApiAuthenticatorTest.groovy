@@ -13,7 +13,7 @@ import org.testng.annotations.Test
 import javax.crypto.BadPaddingException
 
 import static org.easymock.EasyMock.anyObject
-import static org.easymock.EasyMock.createMock
+import static org.easymock.EasyMock.createStrictMock
 import static org.easymock.EasyMock.eq
 import static org.easymock.EasyMock.expect
 import static org.easymock.EasyMock.replay
@@ -37,10 +37,10 @@ class BasicApiAuthenticatorTest {
 
     @BeforeMethod
     void setup() {
-        mockApiKey = createMock(ApiKey)
-        mockApplication = createMock(Application)
-        mockAccount = createMock(Account)
-        mockDataStore = createMock(InternalDataStore)
+        mockApiKey = createStrictMock(ApiKey)
+        mockApplication = createStrictMock(Application)
+        mockAccount = createStrictMock(Account)
+        mockDataStore = createStrictMock(InternalDataStore)
 
         authenticator = new BasicApiAuthenticator(mockDataStore)
     }
@@ -81,8 +81,12 @@ class BasicApiAuthenticatorTest {
 
     @Test(expectedExceptions = RuntimeException.class)
     void testAuthenticationFailure() {
-        expect(mockApplication.getApiKey(eq(keyId), anyObject(ApiKeyOptions.class))).andThrow(new RuntimeException(new BadPaddingException())).times(3)
-        expect(mockApplication.getHref()).andReturn("http://some_href").times(3)
+        expect(mockApplication.getApiKey(eq(keyId), anyObject(ApiKeyOptions.class))).andThrow(new RuntimeException(new BadPaddingException()))
+        expect(mockApplication.getHref()).andReturn("http://some_href")
+        expect(mockApplication.getApiKey(eq(keyId), anyObject(ApiKeyOptions.class))).andThrow(new RuntimeException(new BadPaddingException()))
+        expect(mockApplication.getHref()).andReturn("http://some_href")
+        expect(mockApplication.getApiKey(eq(keyId), anyObject(ApiKeyOptions.class))).andThrow(new RuntimeException(new BadPaddingException()))
+        expect(mockApplication.getHref()).andReturn("http://some_href")
         expect(mockApiKey.getSecret()).andReturn keySecret
         expect(mockApiKey.getStatus()).andReturn ApiKeyStatus.ENABLED
         expect(mockApiKey.getAccount()).andReturn mockAccount
